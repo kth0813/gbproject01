@@ -1,0 +1,488 @@
+@charset "UTF-8";
+/* @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/Roboto-Footlong.eot);
+    src: url(../font/Roboto-Footlong.eot?#iefix) format('embedded-opentype'),
+        url(../font/Roboto-Footlong.woff) format('woff'),
+        url(../font/Roboto-Footlong.ttf) format('truetype');
+} */
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, code, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, footer, header, hgroup, menu, nav, section, main, audio, video { margin: 0; padding: 0; }
+
+/* html의 모든 요소와 가상요소선택자에 border-box사용하여 padding, border사용시
+늘어나지않게함 */
+*, :before, :after {box-sizing: border-box;}
+
+.password_check input{
+    text-align: center;
+    font-size: 3em;
+}
+
+/*html5추가 시멘틱엘리먼트를 익스하위버전에서 블럭으로 인식되도록함*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main { display: block }
+/* */
+
+/* button태그에 손모양 커서 */
+button { cursor: pointer }
+
+/* 반응형에서 이미지 원본크기보다 커지지않고 줄어들수는 있게함 */
+img {max-width: 100%;}
+
+/* 익스하위버전에서 이미지 선없애기 */
+fieldset, img { border: 0; vertical-align: top }
+
+/* 리스트 기호 빼기 */
+ol, ul { list-style: none }
+
+/* 태그 기본 기울임꼴 제거 */
+address, em { font-style: normal }
+
+/* 페이지안에서 가장 많은 링크색 지정 */
+a { text-decoration: none; color: #666;  font-weight:400;}
+
+/* iframe으로 외부컨텐츠를 연결했을때
+외부컨텐츠안쪽내용이 우리페이지에 영향을 주지못하도록 가려줌
+iframe아래쪽 간격없애기
+*/
+iframe { overflow: hidden; border: 0; vertical-align: top; }
+
+/* 칸의 선을 합치기, 칸의 간격없애기, 가로를 늘려줌 */
+table { border-collapse: collapse; border-spacing: 0; width: 100%; table-layout: fixed; }
+
+/* 굵기 빼고 헤딩태그 폰트크기를 body에 선언한 크기와 일치시킴 */
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100% }
+
+/* 폼요소의 높이가 다를때 요소끼리 세로정렬시킴 */
+input, select, textarea, button { vertical-align: middle; margin: 0; padding: 0 }
+
+/* textarea 리사이즈기능 빼기 */
+textarea { resize: none }
+
+/* 페이지안의 모든 폰트의 줄간격을 1.5로 통일시킴
+모바일 크롬, 모바일 사파리 브라우져의 텍스트 자동확대 방지
+*/
+/* body { line-height: 1.5; -webkit-text-size-adjust: none } */
+/* 지금 작업하는 페이지는 line-height:1.5를 제외하고 작업함 */
+body {-webkit-text-size-adjust: none}
+
+/* 선택영역 */
+::-moz-selection {background: #e91e63; color:#fff;}
+::selection {background: #e91e63; color:#fff;}
+
+/* legend,caption,메뉴제목,섹션제목 블라인드 */
+legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px }
+
+/* 공통스타일 */
+/* skip Navgation */
+#skipNavi a {display:block; position: absolute; left: 0; top: -999px; transition:all 0.5s; width: 100%; padding:10px 0; background:#fff; color: #000; z-index: 99999; text-align: center; transform: translateY(-100%); }
+
+#skipNavi a:focus, #skipNavi a:hover, #skipNavi a:active { transform: translateY(0); }
+
+body, input, select, textarea, button, table { font-family: 'noto sans KR'; font-size: 16px; color: #222; letter-spacing: -0.025em; font-weight:400;}
+
+
+/* placeholder공통 */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ color: #999; }
+::-ms-input-placeholder { /* Microsoft Edge */ color: #999; }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ color: #999; opacity: 1; /* Firefox */ }
+
+/* 테이블 공통스타일 */
+/*테이블 제목 공통*/
+.tbl_wrap { margin-top: 100px; }
+.tbl_wrap h3 { font-family: 'Roboto'; font-size: 30px; color: #333; position: relative; }
+.tbl_wrap h3:before { content: ''; position: absolute; left: 0; top: -20px; width: 80px; height: 3px; background: #000; }
+.tbl_wrap h4 { font-family: 'Roboto'; font-size: 25px; color: #333; margin-top: 40px; }
+
+.tbl_wrap .unit { float: right; }
+
+.tbl_wrap .warning { color: #9e897d; margin: 10px 0; padding-left: 25px; position: relative; }
+.tbl_wrap .warning:before {
+    content: '\f06a';
+    font-family: 'Roboto';
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+table thead th { border: 1px solid #d9d9d9; border-top: 2px solid #333; border-bottom: none; height: 70px; background: #f7f7f7; font-size: 18px; font-weight: bold; color: #333; }
+
+table tbody th,
+table tbody td { border: 1px solid #d9d9d9; height: 60px; text-align: center; font-size: 16px; font-weight: normal; }
+
+table td.left_td { text-align: left; }
+table td.left_td a:hover { text-decoration: underline; }
+
+
+/* 게시판 페이징 공통 */
+.tbl_wrap .paging_wrap { text-align: center; margin-top: 20px; }
+.tbl_wrap .paging_wrap .paging { display: inline-block; vertical-align: top; }
+.tbl_wrap .paging_wrap .paging .btn_paging {
+    float: left;
+    width: 22px;
+    height: 40px;
+    text-indent: -9999px;
+    background: url(../images/sprite_pc.png) no-repeat -392px -296px;
+}
+
+.tbl_wrap .paging_wrap .paging .btn_prev { background-position: -362px -168px; margin-right: 5px; }
+.tbl_wrap .paging_wrap .paging .btn_num { float: left; width: 38px; height: 38px; border: 1px solid #eee; line-height: 38px; margin: 0 5px; }
+.tbl_wrap .paging_wrap .paging span.on { background: #bb0841; color: #fff; border-color: #bb0841; }
+.tbl_wrap .paging_wrap .paging .btn_next { background-position: -21px -417px; margin-left: 5px; }
+.tbl_wrap .paging_wrap .paging .btn_last { background-position: -438px -374px; }
+
+/* 폼요소 공통스타일 */
+
+/* input[type="checkbox"] + label {
+    cursor:pointer;
+    position:relative;
+    padding-left:40px;
+    color:#292929;
+    line-height:30px;
+    display:inline-block;
+} */
+/* 태그에서 + 는 인접형제선택자 라는 역활을 하는데 바로밑에있는 형제만 선택한다. 그밑에있는 형제는 선택안됨 */
+/* input[type="checkbox"] + label:before {
+    content:'';
+    position:absolute;
+    left:0;
+    top:7px;
+    width:23px;
+    height:23px;
+    background:url(../images/_check01.png) no-repeat;
+} */
+
+/* input[type="checkbox"] + label em {
+    color:#009223;
+} */
+/* input[type="checkbox"]:checked + label:before {
+    background: url(../images/icon_checkbox.png) no-repeat 50% 50%;
+    background-size:50%;
+} */
+
+/* input[type="checkbox"] + label:after {
+    content:'';
+    position:absolute;
+    top:10px;
+    left:6px;
+    width:0;
+    height:20px;
+    background:url(../images/_check01.png) no-repeat;
+    transition: all 0.5s;
+}
+input[type="checkbox"]:checked + label:after {
+    width:24px;
+} */
+
+body.on {overflow:hidden;}
+/* 레이아웃 크기 입력하여 줄어들지않게함 */
+#wrap {min-width: 360px; position:relative; overflow:hidden; }
+
+/* index page */
+.wrap_inner {
+    max-width:1280px;
+    margin:0 auto;
+}
+#header {
+    height:10vh;
+}
+#header .header_inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:.8% 5%;
+    /* border:solid 1px blue; */
+    height:100%;
+}
+#header .header_inner .logo {
+    border:solid 1px red;
+    width:15%;
+    height:50%;
+}
+#header .header_inner .header_btn {
+    display:flex;
+    align-items:center;
+    width:30%;
+    height:100%;
+}
+#header .header_inner .header_btn ul {
+    display:flex;
+    align-items:center;
+    /* justify-content:space-between; */
+    border:solid 1px #eee;
+    border-radius:50px;
+    width:100%;
+    height:50%;
+    box-shadow:5px 5px 10px rgba(0,0,0,.2);
+}
+#header .header_inner .header_btn ul li {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    width:25%;
+    height:100%;
+    position:relative;
+    padding:0 4%;
+}
+#header .header_inner .header_btn ul li:nth-child(2)  {
+    width:35%;
+}
+#header .header_inner .header_btn ul li:last-child  {
+    width:40%;
+}
+#header .header_inner .header_btn ul li:after {
+    content:'';
+    position:absolute;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    width:1px;
+    height:65%;
+    background-color:#eee;
+
+}
+#header .header_inner .header_btn ul li:last-child:after {
+    display:none;
+}
+#header .header_inner .header_btn ul li span {
+    font-size:.9rem;
+    color:#666;
+}
+#header .header_inner .header_btn ul li:last-child span {
+    text-align:left;
+    width:80%;
+}
+#header .header_inner .header_btn ul li a {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    background-color:#e91e63;
+    border-radius:50%;
+}
+#header .header_inner .user_menu {
+    display:flex;
+    align-items:center;
+    width:10%;
+    height:50%;
+    border:solid 1px #eee;
+    border-radius:50px;
+    box-shadow:5px 5px 10px rgba(0,0,0,.2);
+}
+#header .header_inner .user_menu ul {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+#header .header_inner .user_menu ul li {
+    width:50%;
+    text-align:center;
+}
+
+/* main */
+#main {
+
+}
+#main .room_type {
+    width:100%;
+    height:17vh;
+}
+#main .room_type ul {
+    width:40%;
+    height:100%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+#main .room_type ul li {
+    width:33.333%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#main .room_type ul li a {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+}
+#main .room_type ul li a img {
+    width:10%;
+}
+#main .room_type ul li a span {
+    display:block;
+    font-size:.9rem;
+    margin-top:5px;
+}
+#main .good_area {
+    width:60%;
+    height:20vh;
+    border:solid 1px red;
+    margin:0 auto;
+}
+#main .good_area h3 {
+    font-size:1rem;
+    font-weight:500;
+    color:#666;
+    width:100%;
+    height:14%;
+    border:solid 1px blue;
+}
+#main .good_area ul {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    height:86%;
+}
+#main .good_area ul li {
+    width:25%;
+    border:solid 1px red;
+    height:100%;
+    text-align:center;
+}
+#main .good_area ul li span {
+    font-weight:600;
+}
+#main .notice_wrap {
+    width:90%;
+    height:35vh;
+    margin:5% auto;
+}
+#main .notice_wrap ul {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:100%;
+}
+#main .notice_wrap ul li {
+    width:49%;
+    height:100%;
+}
+#main .notice_wrap ul li img {
+    width:100%;
+    height:90%;
+    border:solid 1px goldenrod;
+}
+#main .notice_wrap ul li .text_box {
+    width:100%;
+    height:10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+#main .notice_wrap ul li .text_box h5 {
+    font-size:1.7rem;
+    font-weight:600;
+}
+#main .notice_wrap ul li .text_box a {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:.8% 2.5%;
+    border:solid 2px #666;
+    border-radius:5px;
+    font-weight:500;
+}
+#main .hostel {
+    width:100%;
+    height:70vh;
+    border:solid 1px blue;
+}
+#main .hostel h3 {
+    font-size:1.7rem;
+    font-weight:600;
+    height:7%;
+}
+#main .hostel ul {
+    width:100%;
+    height:93%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+#main .hostel ul li {
+    width:23%;
+    height:50%;
+    border:solid 1px red;
+    padding:2% 0;
+}
+#main .hostel ul li .main_slider_wrap {
+    width:100%;
+    height:65%;
+    border:solid 1px green;
+}
+#main .hostel ul li .main_slider_wrap .main_slider {
+    width:100%;
+    height:100%;
+}
+#main .hostel ul li .text_wrap {
+    display:flex;
+    flex-direction:column;
+    
+}
+#main .hostel ul li .text_wrap span {
+    color:#666;
+
+}
+#main .hostel ul li .text_wrap .tit_text {
+    display:flex;
+    justify-content:space-between;
+    width:100%;    
+}
+#main .hostel ul li .text_wrap .tit_text span {
+    width:20%;
+}
+#main .experience {
+    width:100%;
+    height:80vh;
+    border:solid 1px green;
+    margin:5% auto;
+}
+#main .experience h3 {
+    font-size:1.7rem;
+    font-weight:600;
+    height:7%;
+}
+#main .experience ul {
+    width:100%;
+    height:93%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+#main .experience ul li {
+    width:23%;
+    height:50%;
+    border:solid 1px red;
+    padding:2% 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
