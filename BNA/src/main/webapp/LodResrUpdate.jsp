@@ -36,7 +36,7 @@ ReserveVO rvo = rdao.getOneReserveLod(lodresnum);;
 <form action="LodResrUpdatePro.jsp" method="post">
 <table border=1 width="1280px">
 <tr>
-	<td width="280px">
+	<td width="280px" style="background-color:lightgray">
 		<table align="center" width="200px">
 			<tr><td>로고<h3>예약변경</h3></td></tr>
 			<tr height="600px"><td></td></tr>

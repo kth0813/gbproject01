@@ -8,6 +8,6 @@
 </head>
 <body>
 <a href="LodDetail.jsp?lodnum=1">LodDetail-숙소정보</a><br>
-<a href="Resr.jsp?Id=a1">Resr-예약확인</a>
+<a href="Resr.jsp?id=a1">Resr-예약확인</a>
 </body>
 </html>

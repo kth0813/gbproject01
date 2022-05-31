@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
+//	String id = request.getParameter("id");
 	ReserveDAO rdao = new ReserveDAO();
 	Vector<ReserveVO> vl = rdao.getAllReserveLod();
 	Vector<ReserveVO> va = rdao.getAllReserveLod();
