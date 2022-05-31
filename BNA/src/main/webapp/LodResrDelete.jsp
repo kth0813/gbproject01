@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="bna.dao.ListDAO" %>
-<%@ page import="bna.vo.ListVO" %>
+<%@ page import="bna.dao.ReserveDAO" %>
+<%@ page import="bna.vo.ReserveVO" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -12,15 +12,9 @@
 <body>
 
 <%
-//	int num = Integer.parseInt(request.getParameter("num"));
-//	ListDAO ldao = new ListDAO();
-//	ListVO lvo = ldao.getOneLod(num);
-	
-//	int category = cvo.getCategory();
-//	String str = null;
-//	if(category==1)str="소형";
-//	else if(category==2)str="중형";
-//	else str="대형";
+int lodresnum = Integer.parseInt(request.getParameter("lodresnum"));
+ReserveDAO rdao = new ReserveDAO();
+ReserveVO rvo = rdao.getOneReserveLod(lodresnum);;
 %>
 <!-- 헤더 -->
 <table border=1 width=100%>
@@ -28,21 +22,22 @@
 </table>
 <!-- 바디 -->
 <form action="LodResrDeletePro.jsp" method="post">
-<table border=1 width=100%>
+<table width="1280px" height="600px" align="center">
 <tr>
-	<td>예약취소
-		<table border="1" width=100%>
-			<tr><td>환불금액</td></tr>
-			<tr><td>환불설명<input type="checkbox" required="required"></td></tr>
-			<tr><td><input type="submit" value="취소버튼"></td></tr>
+	<td width="800px">
+		<table align="center" width="600px">
+			<tr><td colspan=2><h3>예약취소</h3></td></tr>
+			<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><h4>환불금액</h4>￦<%=rvo.getLodresprice() %></td></tr>
+			<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><h4>환불설명</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능 합니다.<br>확인 <input type="checkbox" required="required"></td></tr>
+			<tr><td style="padding:15px 0px;"><input type="submit" value="취소버튼"></td></tr>
 		</table>
 	</td>
-	<td>
-		<table border="1" width=100%>
-			<tr><td>숙소명</td></tr>
-			<tr><td>날짜</td></tr>
-			<tr><td>인원수</td></tr>
-			<tr><td>요금</td></tr>
+	<td width="480px">
+		<table style="border-radius:15px;padding:15px;border:1px solid gray" width=100%>
+			<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><img style="border-radius:15px;" src="images/<%=rvo.getLodimg1()%>" width="100px" height="100px"></td><td style="border-bottom:1px solid gray"><%=rvo.getLodname() %></td></tr>
+			<tr><td style="padding:15px 0px;">날짜</td><td><%=rvo.getLodchkin()%> ~ <%=rvo.getLodchkout()%></td></tr>
+			<tr><td style="padding:15px 0px;border-bottom:1px solid gray">게스트</td><td style="border-bottom:1px solid gray"><%=rvo.getLodpeople()%>명</td></tr>
+			<tr><td style="padding:15px 0px;">요금</td><td>￦<%=rvo.getLodresprice()%></td></tr>
 		</table>
 	</td>
 </tr>

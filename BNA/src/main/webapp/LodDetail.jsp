@@ -12,20 +12,18 @@
 <script>
 function getShow(){
 	document.getElementById("not1").style.display = "";
-	not2.innerText = "";
-	not3.innerText = "숨기기";
+	not2.innerHTML = "";
+	not3.innerHTML = "성인 : <span id='resultA'>2</span>명 어린이 : <span id='resultC'>0</span>명";
 }
-function getHide(){
-	document.getElementById("not1").style.display = "none";
-	not2.innerText = "보이기";
-	not3.innerText = "";
+
+function printA()  {
+	  const apeople = document.getElementById('apeople').value;
+	  document.getElementById("resultA").innerText = apeople;
 }
-function printName()  {
-	  const result1 = document.getElementById('result1').value;
-	  const result2 = document.getElementById('result2').value;
-	  const name = result1;
-	  document.getElementById("result").innerText = name;
-	}
+function printC()  {
+	  const cpeople = document.getElementById('cpeople').value;
+	  document.getElementById("resultC").innerText = cpeople;
+}
 </script>
 <%
 	int lodnum = Integer.parseInt(request.getParameter("lodnum"));
@@ -103,43 +101,20 @@ function printName()  {
 		</table>
 	</td>
 	<td width="30%">
-		<form action="LodResr.jsp" method="post">
-		<table border=1 width=100%>
-			<tr><td>체크인<br><input type="date" id="today"></td><td>체크아웃<br><input type="date" id="tomorrow"></td></tr>
-			<tr>
-				<td>인원<br>게스트</td>
-				<td>
-					<a onclick="getShow()" id="not2">보이기</a>
-					<a onclick="getHide()" id="not3"></a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan=2>
-					<div style="display:none" id="not1">
-						<table border=1 width=100%>
-							<tr>
-								<td>성인<br>만 13세 이상</td>
-								<td align="center">
-									<input type='button' onclick='count("minus1")' value='-'/>
-									<span id='result1'>1</span>
-									<input type='button' onclick='count("plus1")' value='+'/>
-								</td>
-							<tr>
-								<td>어린이<br>만 12세 이하</td>
-								<td align="center">
-									<input type='button' onclick='count("minus2")' value='-'/>
-									<span id='result2'>0</span>
-									<input type='button' onclick='count("plus2")' value='+'/>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</td>
-			</tr>
+	<form action="LodResr.jsp?lodnum=1" method="post">
+		<table style="border:1px solid black;border-radius:15px;padding:0px 15px" width=100%>
+			<tr><td style="padding:15px">￦<%=lvo.getLodprice() %> / 박</td></tr>
+			<tr><td><table align="center" style="border:1px solid black;border-radius:15px;">
+				<tr style="border-bottom:1px solid gray"><td style="padding:15px;border-right:1px solid gray;border-bottom:1px solid gray">체크인<br><input type="date" id="today" name="today"></td><td style="padding:15px;border-bottom:1px solid gray">체크아웃<br><input type="date" id="tomorrow" name="tomorrow"></td></tr>
+				<tr><td colspan=2 style="padding:15px">인원<br>게스트<a onclick="getShow()" id="not2">성인 : <span id='resultA'>2</span>명 어린이 : <span id='resultC'>0</span>명 ▼</a><a onclick="getHide()" id="not3"></a></td></tr>
+				<tr><td colspan=2><div style="display:none" id="not1"><table width=100%>
+					<tr><td>성인<br>만 13세 이상</td><td align="center"><input type="number" min=1 max=4 step=1 value=2 id="apeople" name="apeople" onchange='printA()'></td></tr>
+					<tr><td>어린이<br>만 12세 이하</td><td align="center"><input type="number" min=0 max=4 step=1 value=0 id="cpeople" name="cpeople" onchange='printC()'></td></tr>
+				</table></div></td></tr>
+			</table></td></tr>
 			<tr><td colspan="2"><input type="submit" value="예약버튼"></td></tr>
-			<tr><td colspan="2"><%=lvo.getLodprice()%></td></tr>
 		</table>
-		</form>
+	</form>
 	</td>
 </tr>
 <tr>

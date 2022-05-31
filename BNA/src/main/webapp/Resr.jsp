@@ -22,7 +22,7 @@
 <tr><td>로고</td><td>고객페이지</td></tr>
 </table>
 <!-- 바디 -->
-<table width=100%>
+<table width="1280px" align="center">
 	<tr><td><h2>숙소</h2></td></tr>
 	<tr>
 		<td>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="LodDetail.jsp?lodnum=1">LodDetail</a>
-<a href="Resr.jsp?lodnum=1">Resr</a>
+<a href="LodDetail.jsp?lodnum=1">LodDetail-숙소정보</a><br>
+<a href="Resr.jsp?Id=a1">Resr-예약확인</a>
 </body>
 </html>
