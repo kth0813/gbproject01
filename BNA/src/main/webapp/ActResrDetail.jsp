@@ -39,7 +39,7 @@
 			<tr><td colspan="2"><input type="button" onClick="location.href='ActResrDelete.jsp'" value="예약취소"></td></tr>
 		</table>
 	</td>
-	<td><jsp:include page="map.jsp"></jsp:include></td>
+	<td><jsp:include page="ActMap.jsp"></jsp:include></td>
 </tr>
 </table>
 </body>

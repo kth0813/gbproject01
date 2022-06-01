@@ -1,4 +1,4 @@
-package bna.DAO;
+package bna.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import bna.VO.CustomerVO;
+import bna.vo.CustomerVO;
 
 public class CustomerDAO {
 	

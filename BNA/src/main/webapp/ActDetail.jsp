@@ -57,7 +57,7 @@
 <tr>
 	<td colspan="2">
 		<table border=1 width=100%>
-			<tr><td>체험 지도<br><jsp:include page="map.jsp"></jsp:include>체험주소</td></tr>
+			<tr><td>체험 지도<br><jsp:include page="ActMap.jsp"></jsp:include>체험주소</td></tr>
 			<tr><td>체험 후기</td></tr>
 		</table>
 	</td>

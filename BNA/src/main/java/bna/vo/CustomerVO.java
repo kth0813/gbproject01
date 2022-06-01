@@ -1,4 +1,4 @@
-package bna.VO;
+package bna.vo;
 
 public class CustomerVO {
 	

@@ -36,11 +36,11 @@ ReserveVO rvo = rdao.getOneReserveLod(lodresnum);
 				<tr><td style="width:225px; border-bottom:1px solid gray; border-right:1px solid gray; padding:0px 15px 15px 15px;"><h4>체크인</h4><%=rvo.getLodchkin() %></td><td style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;width:225px; "><h4>체크아웃</h4><%=rvo.getLodchkout() %></td></tr>
 				<tr><td style="width:225px; border-bottom:1px solid gray; border-right:1px solid gray; padding:0px 15px 15px 15px;"><h4>인원</h4><%=rvo.getLodpeople() %></td><td style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;"><h4>가격</h4><%=rvo.getLodresprice() %></td></tr>
 				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;"><h4>주소</h4><%=rvo.getLodaddr() %></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrUpdate.jsp?lodresnum=1'">예약변경 ></h3></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrDelete.jsp?lodresnum=1'">예약취소 ></h3></td></tr>
+				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrUpdate.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약변경 ></h3></td></tr>
+				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrDelete.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약취소 ></h3></td></tr>
 			</table>
 		</td>
-		<td width="800px" height="800px" bgcolor="gray"><jsp:include page="Resrmap.jsp"></jsp:include></td>
+		<td width="800px" height="800px" bgcolor="gray"><jsp:include page="LodResrmap.jsp"></jsp:include></td>
 	</tr>
 </table>
 </body>

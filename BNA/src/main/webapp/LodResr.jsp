@@ -3,6 +3,7 @@
 <%@ page import="bna.dao.ListDAO" %>
 <%@ page import="bna.vo.ListVO" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,48 +39,79 @@ function payment(data) {
         }
     });
 }
-    </script>
+</script>
 </head>
 <body>
-
 <%
-int apeople = Integer.parseInt(request.getParameter("apeople"));
-int cpeople = Integer.parseInt(request.getParameter("cpeople"));
+int people = Integer.parseInt(request.getParameter("people"));
 String today= request.getParameter("today");
 String tomorrow= request.getParameter("tomorrow");
 int lodnum = Integer.parseInt(request.getParameter("lodnum"));
+String id= "a1";
 ListDAO ldao = new ListDAO();
 ListVO lvo = ldao.getOneLod(lodnum);
+Date day1 = new SimpleDateFormat("yyyy-MM-dd").parse(today);
+Date day2 = new SimpleDateFormat("yyyy-MM-dd").parse(tomorrow);
+long day3 = (day2.getTime() - day1.getTime()) / (1000*24*60*60);
+String loddate = String.valueOf(day3);
+int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 %>
-
 <!-- 헤더 -->
 <table border=1 width=100%>
-<tr><td>로고</td></tr>
+	<tr>
+		<td>로고<%=loddate %></td>
+	</tr>
 </table>
 <!-- 바디 -->
 <form action="LodResrPro.jsp" method="post">
 <table width="1280px" align="center" height="600px">
-<tr>
-	<td>
-		<table width="600px" height="600px" align="center">
-			<tr><td style="border-bottom: 1px solid gray;padding:15px"><h3>확인 및 결제</h3></td></tr>
-			<tr><td style="border-bottom: 1px solid gray;padding:15px"><h4>결제수단</h4><button id="iamportPayment" type="button">결제 버튼</button> 
-			</td></tr>
-			<tr><td style="border-bottom: 1px solid gray;padding:15px"><h4>환불 정책</h4><%=today %>일 이전에 예약 취소시 전액 환불됩니다. 이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td></tr>
-			<tr><td style="border-bottom: 1px solid gray;padding:15px"><input type="submit" value="확인버튼"></td></tr>
-		</table>
-	</td>
-	<td>
-		<table  style="border: 1px solid gray;border-radius: 15px"width="400px" align="center">
-			<tr><td width="150px" style="border-bottom: 1px solid gray;padding:15px"><img src="images/<%=lvo.getLodimg1()%>" width="150px" height="150px"></td><td width="250px" style="border-bottom: 1px solid gray;padding:15px"><%=lvo.getLodname() %></td></tr>
-			<tr><td colspan="2" style="border-bottom: 1px solid gray;padding:15px">날짜 : <%=today %> ~ <%=tomorrow %></td></tr>
-			<tr><td colspan="2" style="border-bottom: 1px solid gray;padding:15px">게스트 : 성인<%=apeople%>명, 어린이<%=cpeople%>명, 총<%=apeople+cpeople %>명</td></tr>
-			<tr><td colspan="2" style="padding:15px"><h4>요금 세부 정보</h4><%=lvo.getLodprice()%>x1박 <%=lvo.getLodprice()%></td></tr>
-			<tr><td colspan="2" style="padding:15px">수수료 <%=1000*(apeople+cpeople) %></td></tr>
-			<tr><td colspan="2" style="padding:15px">총 햡계(KRW) <%=lvo.getLodprice()+1000*(apeople+cpeople) %></td></tr>
-		</table>
-	</td>
-</tr>
+	<tr>
+		<td>
+			<table width="600px" height="600px" align="center">
+				<tr>
+					<td style="border-bottom: 1px solid gray;padding:15px"><h3>확인 및 결제</h3></td>
+				</tr>
+				<tr>
+					<td style="border-bottom: 1px solid gray;padding:15px"><h4>결제수단</h4><button id="iamportPayment" type="button">결제 버튼</button></td>
+				</tr>
+				<tr>
+					<td style="border-bottom: 1px solid gray;padding:15px"><h4>환불 정책</h4><%=today %>일 이전에 예약 취소시 전액 환불됩니다. 이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td>
+				</tr>
+				<tr>
+					<td style="border-bottom: 1px solid gray;padding:15px"><input type="submit" value="확인버튼"></td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table  style="border: 1px solid gray;border-radius: 15px"width="400px" align="center">
+				<tr>
+					<td width="150px" style="border-bottom: 1px solid gray;padding:15px"><img src="images/<%=lvo.getLodimg1()%>" width="150px" height="150px"></td><td width="250px" style="border-bottom: 1px solid gray;padding:15px"><%=lvo.getLodname() %></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="border-bottom: 1px solid gray;padding:15px">날짜 : <%=today %> ~ <%=tomorrow %></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="border-bottom: 1px solid gray;padding:15px">게스트 : <%=people%>명</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="padding:15px"><h4>요금 세부 정보</h4><%=lvo.getLodprice()%>x<%=loddate %>박 <%=lvo.getLodprice()*Integer.parseInt(loddate) %></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="padding:15px">수수료 <%=1000*(people) %></td></tr>
+				<tr>
+					<td colspan="2" style="padding:15px">총 햡계(KRW) <%=lodresprice %>
+					<input type="hidden" name="id" value="a1">
+					<input type="hidden" name="loddate" value="<%=loddate %>">
+					<input type="hidden" name="lodchkin" value="<%=today %>">
+					<input type="hidden" name="lodchkout" value="<%=tomorrow %>">
+					<input type="hidden" name="lodnum" value="<%=lvo.getLodnum() %>">
+					<input type="hidden" name="lodpeople" value="<%=people %>">
+					<input type="hidden" name="lodresprice" value="<%=lodresprice %>">
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
 </table>
 </form>
 </body>

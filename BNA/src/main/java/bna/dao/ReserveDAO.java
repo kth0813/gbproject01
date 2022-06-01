@@ -46,7 +46,7 @@ public class ReserveDAO {
 			pstmt.setString(4, rvo.getLodchkin());
 			pstmt.setString(5, rvo.getLodchkout());
 			pstmt.setInt(6, rvo.getLodpeople());
-			pstmt.setInt(7, rvo.getLodprice());
+			pstmt.setInt(7, rvo.getLodresprice());
 			
 			pstmt.executeUpdate();	
 			
@@ -61,131 +61,179 @@ public class ReserveDAO {
 	
 	
 	//회원의 예약정보 내용 불러오기
-		public Vector<ReserveVO> getAllReserveLod() throws Exception{ //String id
-			
-			Vector<ReserveVO> v = new Vector<>();
-						
-			getConnection();
-			
-			try {
-				String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum "; // where id = ?
-						
-				pstmt = conn.prepareStatement(sql);
-				//pstmt.setString(1, id);
-				
-				rs	= pstmt.executeQuery();	
-				
-				while(rs.next()) {
-					ReserveVO rvo = new ReserveVO();
+	public Vector<ReserveVO> getAllReserveLod() throws Exception{ //String id
+		
+		Vector<ReserveVO> v = new Vector<>();
 					
-					rvo.setLodresnum(rs.getInt(1));
-					rvo.setLodnum(rs.getInt(2));
-					rvo.setId(rs.getString(3));
-					rvo.setLoddate(rs.getString(4));
-					rvo.setLodchkin(rs.getString(5));
-					rvo.setLodchkout(rs.getString(6));  
-					rvo.setLodpeople(rs.getInt(7)); 
-					rvo.setLodresprice(rs.getInt(8));
-					rvo.setLodname(rs.getString(10));
-					rvo.setLodprice(rs.getInt(11));
-					rvo.setLodimg1(rs.getString(12));
-					rvo.setLodaddr(rs.getString(24));
-					v.add(rvo);				
-				}
+		getConnection();
+		
+		try {
+			String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum "; // where id = ?
+					
+			pstmt = conn.prepareStatement(sql);
+			//pstmt.setString(1, id);
+			
+			rs	= pstmt.executeQuery();	
+			
+			while(rs.next()) {
+				ReserveVO rvo = new ReserveVO();
 				
-				if(conn != null) {
-					conn.close();
-				}			
-				
-			}catch(Exception e) {
-				e.printStackTrace();
+				rvo.setLodresnum(rs.getInt(1));
+				rvo.setLodnum(rs.getInt(2));
+				rvo.setId(rs.getString(3));
+				rvo.setLoddate(rs.getString(4));
+				rvo.setLodchkin(rs.getString(5));
+				rvo.setLodchkout(rs.getString(6));  
+				rvo.setLodpeople(rs.getInt(7)); 
+				rvo.setLodresprice(rs.getInt(8));
+				rvo.setLodname(rs.getString(10));
+				rvo.setLodprice(rs.getInt(11));
+				rvo.setLodimg1(rs.getString(12));
+				rvo.setLodaddr(rs.getString(24));
+				v.add(rvo);				
 			}
 			
-			return v;
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		
+		return v;
+	}
+	
 		
-		//회원의 예약정보 내용 불러오기
-		public Vector<ReserveVO> getAllReserveAct() throws Exception{ //String id
-			
-			Vector<ReserveVO> v = new Vector<>();
-						
-			getConnection();
-			
-			try {
-				String sql = "select * from actrestbl a join acttbl b on a.actnum=b.actnum"; // where id = ?
-						
-				pstmt = conn.prepareStatement(sql);
-				//pstmt.setString(1, id);
-				
-				rs	= pstmt.executeQuery();	
-				
-				while(rs.next()) {
-					ReserveVO rvo = new ReserveVO();
+	//회원의 예약정보 내용 불러오기
+	public Vector<ReserveVO> getAllReserveAct() throws Exception{ //String id
+		
+		Vector<ReserveVO> v = new Vector<>();
 					
-					rvo.setActresnum(rs.getInt(1));
-					rvo.setActnum(rs.getInt(2));
-					rvo.setActpeople(rs.getInt(7)); 
-					rvo.setActprice(rs.getInt(8)); 
-					rvo.setActdate(rs.getString(4));
-					rvo.setActchkin(rs.getString(5));
-					rvo.setActchkout(rs.getString(6));  
-					rvo.setActname(rs.getString(10));
-					rvo.setActaddr(rs.getString(24));
-					rvo.setActimg1(rs.getString(12));
+		getConnection();
+		
+		try {
+			String sql = "select * from actrestbl a join acttbl b on a.actnum=b.actnum"; // where id = ?
 					
-					v.add(rvo);				
-				}
+			pstmt = conn.prepareStatement(sql);
+			//pstmt.setString(1, id);
+			
+			rs	= pstmt.executeQuery();	
+			
+			while(rs.next()) {
+				ReserveVO rvo = new ReserveVO();
 				
-				if(conn != null) {
-					conn.close();
-				}			
+				rvo.setActresnum(rs.getInt(1));
+				rvo.setActnum(rs.getInt(2));
+				rvo.setActpeople(rs.getInt(7)); 
+				rvo.setActprice(rs.getInt(8)); 
+				rvo.setActdate(rs.getString(4));
+				rvo.setActchkin(rs.getString(5));
+				rvo.setActchkout(rs.getString(6));  
+				rvo.setActname(rs.getString(10));
+				rvo.setActaddr(rs.getString(24));
+				rvo.setActimg1(rs.getString(12));
 				
-			}catch(Exception e) {
-				e.printStackTrace();
+				v.add(rvo);				
 			}
 			
-			return v;
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		
-		public ReserveVO getOneReserveLod(Integer lodresnum) throws Exception{ //String id
-									
-			getConnection();
-			ReserveVO rvo = new ReserveVO();
+		return v;
+	}
+	
+	//회원의 선택한 예약정보 내용 불러오기
+	public ReserveVO getOneReserveLod(Integer lodresnum) throws Exception{ //String id
+								
+		getConnection();
+		ReserveVO rvo = new ReserveVO();
 
-			try {
-				String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum where lodresnum=?"; // where id = ?
-						
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, lodresnum);
-				rs	= pstmt.executeQuery();	
-				
-				if(rs.next()) {
+		try {
+			String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum where lodresnum=?"; // where id = ?
 					
-					rvo.setLodresnum(rs.getInt(1));
-					rvo.setLodnum(rs.getInt(2));
-					rvo.setId(rs.getString(3));
-					rvo.setLoddate(rs.getString(4));
-					rvo.setLodchkin(rs.getString(5));
-					rvo.setLodchkout(rs.getString(6));  
-					rvo.setLodpeople(rs.getInt(7)); 
-					rvo.setLodresprice(rs.getInt(8));
-					rvo.setLodname(rs.getString(10));
-					rvo.setLodprice(rs.getInt(11));
-					rvo.setLodimg1(rs.getString(12));
-					rvo.setLodlat(rs.getDouble(22));
-					rvo.setLodlng(rs.getDouble(23));
-					rvo.setLodaddr(rs.getString(24));
-				}
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, lodresnum);
+			rs	= pstmt.executeQuery();	
+			
+			if(rs.next()) {
 				
-				if(conn != null) {
-					conn.close();
-				}			
-				
-			}catch(Exception e) {
-				e.printStackTrace();
+				rvo.setLodresnum(rs.getInt(1));
+				rvo.setLodnum(rs.getInt(2));
+				rvo.setId(rs.getString(3));
+				rvo.setLoddate(rs.getString(4));
+				rvo.setLodchkin(rs.getString(5));
+				rvo.setLodchkout(rs.getString(6));  
+				rvo.setLodpeople(rs.getInt(7)); 
+				rvo.setLodresprice(rs.getInt(8));
+				rvo.setLodname(rs.getString(10));
+				rvo.setLodprice(rs.getInt(11));
+				rvo.setLodimg1(rs.getString(12));
+				rvo.setLodlat(rs.getDouble(22));
+				rvo.setLodlng(rs.getDouble(23));
+				rvo.setLodaddr(rs.getString(24));
 			}
 			
-			return rvo;
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
+		
+		return rvo;
+	}
+	
+	//선택한 숙소 삭제
+	public void setReserveDeleteLod(ReserveVO rvo) {
+		try {
+			 getConnection();
+	
+			String sql="delete from lodrestbl where lodresnum=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setInt(1, rvo.getLodresnum());
+		
+			pstmt.executeUpdate();
+			if(conn!=null) {
+				conn.close();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//숙소 예약 정보 수정
+	public void setReserveUpdateLod(ReserveVO rvo) throws Exception{
+		
+		getConnection();
+		
+		try {
+			String sql = "update lodrestbl set loddate=?,lodchkin=?,lodchkout=?,lodpeople=?,lodresprice=? where lodresnum=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, rvo.getLoddate());
+			pstmt.setString(2, rvo.getLodchkin());
+			pstmt.setString(3, rvo.getLodchkout());
+			pstmt.setInt(4, rvo.getLodpeople());
+			pstmt.setInt(5, rvo.getLodresprice());
+			pstmt.setInt(6, rvo.getLodresnum());
+			
+			pstmt.executeUpdate();	
+			
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
