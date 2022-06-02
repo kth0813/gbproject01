@@ -62,7 +62,7 @@ int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 					<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" name="lodchkin" value="<%=rvo.getLodchkin()%>"></td><td>체크아웃<br><input type="date" name="lodchkout" value="<%=rvo.getLodchkout()%>"></td></tr></table></td>
 				</tr>
 				<tr>
-					<td><table width="100%"><tr><td>게스트</td><td><input type="number" min=1 max=4 step=1 value="<%=rvo.getLodpeople() %>" name="lodpeople"> 명</td></tr></table></td>
+					<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>게스트</td><td align="center"><input type="number" min=1 max=4 step=1 value="<%=rvo.getLodpeople() %>" name="lodpeople"> 명</td></tr></table></td>
 				</tr>
 				<tr>
 					<td><h4>환불정책</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td>
