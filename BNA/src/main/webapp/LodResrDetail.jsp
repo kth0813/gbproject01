@@ -11,18 +11,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
 <%
 int lodresnum = Integer.parseInt(request.getParameter("lodresnum"));
 ReserveDAO rdao = new ReserveDAO();
 ReserveVO rvo = rdao.getOneReserveLod(lodresnum);
 
 %>
+<link rel="stylesheet" href="css/detail.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/swiper.min.css">
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/ui.common.js?v=<?php echo time(); ?>"></script>
+</head>
+<body>
 <!-- 헤더 -->
-<table border=1 align="center" width="1280px">
-<tr><td>로고</td><td>고객페이지</td></tr>
-</table>
+<div id="wrap">
+	<div class="wrap_inner">
+    	<!-- 헤더 -->
+        <header id="header">
+            <div class="header_inner">
+                <h2><image class="logo" src="./images/logo.png"/></h2>
+                <div class="header_btn">
+                    <ul>
+                        <li><span>어디든지</span></li>
+                        <li><span>언제든 일주일</span></li>
+                        <li><span>게스트 추가</span> <a href="javascript:;" class="search_icon"></a></li>
+                    </ul>
+                </div>
+    
+                <div class="user_menu">
+					<ul>
+						<li><a href="javascript:;"><image class="profile btn-open-popup" src="./images/profile.png"></a></li>
+					</ul>
+                </div>
+                <div class="modal public">
+                    <ul>
+                        <li>로그인</li>
+                        <li>회원가입</li>
+                    </ul>
+                </div>
+                <div class="modal private">
+                    <ul>
+                        <li>내정보</li>
+                        <li>로그아웃</li>
+                    </ul>
+                </div>
+            </div>
+        </header>		
+	</div>
+</div>
 <!-- 바디 -->
 <table align="center" width="1280px">
 	<tr>

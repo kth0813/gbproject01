@@ -58,9 +58,35 @@ public class ReserveDAO {
 			e.printStackTrace();
 		}
 	}
+	//체험 예약 정보 입력
+	public void setReserveAct(ReserveVO rvo) throws Exception{
+		
+		getConnection();
+		
+		try {
+			String sql = "insert into actrestbl values(actrestbl_seq.nextval, ?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rvo.getActnum()); 
+			pstmt.setString(2, rvo.getId()); 
+			pstmt.setString(3, rvo.getActdate());
+			pstmt.setString(4, rvo.getActchkin());
+			pstmt.setString(5, rvo.getActchkout());
+			pstmt.setInt(6, rvo.getActpeople());
+			pstmt.setInt(7, rvo.getActresprice());
+			
+			pstmt.executeUpdate();	
+			
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
-	
-	//회원의 예약정보 내용 불러오기
+	//회원의 숙소예약정보 내용 불러오기
 	public Vector<ReserveVO> getAllReserveLod() throws Exception{ //String id
 		
 		Vector<ReserveVO> v = new Vector<>();
@@ -105,7 +131,7 @@ public class ReserveDAO {
 	}
 	
 		
-	//회원의 예약정보 내용 불러오기
+	//회원의 체험예약정보 내용 불러오기
 	public Vector<ReserveVO> getAllReserveAct() throws Exception{ //String id
 		
 		Vector<ReserveVO> v = new Vector<>();
@@ -125,14 +151,16 @@ public class ReserveDAO {
 				
 				rvo.setActresnum(rs.getInt(1));
 				rvo.setActnum(rs.getInt(2));
-				rvo.setActpeople(rs.getInt(7)); 
-				rvo.setActprice(rs.getInt(8)); 
+				rvo.setId(rs.getString(3));
 				rvo.setActdate(rs.getString(4));
 				rvo.setActchkin(rs.getString(5));
 				rvo.setActchkout(rs.getString(6));  
+				rvo.setActpeople(rs.getInt(7)); 
+				rvo.setActresprice(rs.getInt(8));
 				rvo.setActname(rs.getString(10));
-				rvo.setActaddr(rs.getString(24));
+				rvo.setActprice(rs.getInt(11));
 				rvo.setActimg1(rs.getString(12));
+				rvo.setActaddr(rs.getString(21));
 				
 				v.add(rvo);				
 			}
@@ -148,7 +176,7 @@ public class ReserveDAO {
 		return v;
 	}
 	
-	//회원의 선택한 예약정보 내용 불러오기
+	//회원의 선택한 숙소예약정보 내용 불러오기
 	public ReserveVO getOneReserveLod(Integer lodresnum) throws Exception{ //String id
 								
 		getConnection();
@@ -189,7 +217,47 @@ public class ReserveDAO {
 		
 		return rvo;
 	}
-	
+	//회원의 선택한 체험예약정보 내용 불러오기
+	public ReserveVO getOneReserveAct(Integer actresnum) throws Exception{ //String id
+								
+		getConnection();
+		ReserveVO rvo = new ReserveVO();
+
+		try {
+			String sql = "select * from actrestbl a join acttbl b on a.actnum=b.actnum where actresnum=?"; // where id = ?
+					
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, actresnum);
+			rs	= pstmt.executeQuery();	
+			
+			if(rs.next()) {
+				
+				rvo.setActresnum(rs.getInt(1));
+				rvo.setActnum(rs.getInt(2));
+				rvo.setId(rs.getString(3));
+				rvo.setActdate(rs.getString(4));
+				rvo.setActchkin(rs.getString(5));
+				rvo.setActchkout(rs.getString(6));  
+				rvo.setActpeople(rs.getInt(7)); 
+				rvo.setActresprice(rs.getInt(8));
+				rvo.setActname(rs.getString(10));
+				rvo.setActprice(rs.getInt(11));
+				rvo.setActimg1(rs.getString(12));
+				rvo.setActlat(rs.getDouble(19));
+				rvo.setActlng(rs.getDouble(20));
+				rvo.setActaddr(rs.getString(21));
+			}
+			
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rvo;
+	}	
 	//선택한 숙소 삭제
 	public void setReserveDeleteLod(ReserveVO rvo) {
 		try {
@@ -210,6 +278,25 @@ public class ReserveDAO {
 		}
 	}
 	
+	//선택한 체험 삭제
+	public void setReserveDeleteAct(ReserveVO rvo) {
+		try {
+			 getConnection();
+	
+			String sql="delete from actrestbl where actresnum=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setInt(1, rvo.getActresnum());
+		
+			pstmt.executeUpdate();
+			if(conn!=null) {
+				conn.close();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	//숙소 예약 정보 수정
 	public void setReserveUpdateLod(ReserveVO rvo) throws Exception{
 		
@@ -225,6 +312,32 @@ public class ReserveDAO {
 			pstmt.setInt(4, rvo.getLodpeople());
 			pstmt.setInt(5, rvo.getLodresprice());
 			pstmt.setInt(6, rvo.getLodresnum());
+			
+			pstmt.executeUpdate();	
+			
+			if(conn != null) {
+				conn.close();
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//체험 예약 정보 수정
+	public void setReserveUpdateAct(ReserveVO rvo) throws Exception{
+		
+		getConnection();
+		
+		try {
+			String sql = "update actrestbl set actdate=?,actchkin=?,actchkout=?,actpeople=?,actresprice=? where actresnum=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, rvo.getActdate());
+			pstmt.setString(2, rvo.getActchkin());
+			pstmt.setString(3, rvo.getActchkout());
+			pstmt.setInt(4, rvo.getActpeople());
+			pstmt.setInt(5, rvo.getActresprice());
+			pstmt.setInt(6, rvo.getActresnum());
 			
 			pstmt.executeUpdate();	
 			

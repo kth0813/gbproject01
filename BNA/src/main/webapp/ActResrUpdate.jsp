@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="bna.dao.ReserveDAO" %>
+<%@ page import="bna.vo.ReserveVO" %>
 <%@ page import="bna.dao.ListDAO" %>
 <%@ page import="bna.vo.ListVO" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,37 +16,69 @@
 <body>
 
 <%
-//	int num = Integer.parseInt(request.getParameter("num"));
-//	ListDAO ldao = new ListDAO();
-//	ListVO lvo = ldao.getOneLod(num);
-	
-//	int category = cvo.getCategory();
-//	String str = null;
-//	if(category==1)str="소형";
-//	else if(category==2)str="중형";
-//	else str="대형";
+int actresnum = Integer.parseInt(request.getParameter("actresnum"));
+ReserveDAO rdao = new ReserveDAO();
+ReserveVO rvo = rdao.getOneReserveAct(actresnum);
+int actnum = rvo.getActnum();
+ListDAO ldao = new ListDAO();
+ListVO lvo = ldao.getOneAct(actnum);
+
+int people = rvo.getActpeople();
+Date day1 = new SimpleDateFormat("yyyy-MM-dd").parse(rvo.getActchkin());
+Date day2 = new SimpleDateFormat("yyyy-MM-dd").parse(rvo.getActchkout());
+long day3 = (day2.getTime() - day1.getTime()) / (1000*24*60*60);
+String actdate = String.valueOf(day3);
+int actresprice=lvo.getActprice()*Integer.parseInt(actdate)+1000*(people);
 %>
 <!-- 바디 -->
-<form action="ActResrUpdatePro.jsp" method="post">
-<table border=1 width=100%>
-<tr>
-	<td>
-		<table border="1" width=100%>
-			<tr><td>로고</td></tr>
-			<tr><td>예약변경</td></tr>
-			<tr><td><input type="button" onClick="location.href='LodResrDetail.jsp'" value="뒤로버튼"></td></tr>
-		</table>
-	</td>
-	<td>
-		<table>
-			<tr><td>체험이름</td></tr>
-			<tr><td>날짜</td></tr>
-			<tr><td>인원</td></tr>
-			<tr><td>변경설명<input type="checkbox" required="required"></td></tr>
-			<tr><td><input type="submit" value="변경요청버튼"></td></tr>
-		</table></td>
-</tr>
+<table width="1280px" style="border-collapse : collapse;">
+	<tr>
+		<td width="280px" style="background-color:lightgray;padding:15px 0px">
+			<table align="center" width="200px">
+				<tr>
+					<td><image class="logo" src="images/logo.png" width="100px"><h3>예약변경</h3></td>
+				</tr>
+				<tr height="600px">
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="button" onClick="location.href='ActResrDetail.jsp?actresnum=<%=rvo.getActresnum() %>'" value="뒤로버튼"></td>
+				</tr>
+			</table>
+		</td>
+		<td width="1080px">
+			<form action="ActResrUpdatePro.jsp" method="post">
+				<table align="center">
+					<tr>
+						<td><h3>예약 세부 정보</h3></td>
+					</tr>
+					<tr>
+						<td><%=rvo.getActname() %></td>
+					</tr>
+					<tr>
+						<td><h4>예약 날짜</h4></td>
+					</tr>
+					<tr>
+						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" name="actchkin" value="<%=rvo.getActchkin()%>"></td><td>체크아웃<br><input type="date" name="actchkout" value="<%=rvo.getActchkout()%>"></td></tr></table></td>
+					</tr>
+					<tr>
+						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>게스트</td><td align="center"><input type="number" min=1 max=4 step=1 value="<%=rvo.getActpeople() %>" name="actpeople"> 명</td></tr></table></td>
+					</tr>
+					<tr>
+						<td><h4>환불정책</h4><%=rvo.getActchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td>
+					</tr>
+					<tr>
+						<td style="padding:15px 0px">
+							<input type="hidden" name="actresnum" value="<%=rvo.getActresnum() %>">	
+							<input type="hidden" name="actdate" value="<%=actdate %>">
+							<input type="hidden" name="actresprice" value="<%=actresprice %>">
+							<input type="submit" value="예약변경요청">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
 </table>
-</form>
 </body>
 </html>

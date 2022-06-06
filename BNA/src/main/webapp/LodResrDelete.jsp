@@ -8,43 +8,81 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
 <%
 int lodresnum = Integer.parseInt(request.getParameter("lodresnum"));
 ReserveDAO rdao = new ReserveDAO();
 ReserveVO rvo = rdao.getOneReserveLod(lodresnum);;
 %>
-<!-- 헤더 -->
-<table border=1 width="1280px" align="center">
-	<tr>
-		<td>로고<%=rvo.getLodresnum() %></td>
-		<td>고객페이지</td>
-	</tr>
-</table>
-<!-- 바디 -->
-<form action="LodResrDeletePro.jsp" method="post">
-	<table width="1280px" height="600px" align="center">
-		<tr>
-			<td width="800px">
-				<table align="center" width="600px">
-					<tr><td colspan=2><h3>예약취소</h3></td></tr>
-					<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><h4>환불금액</h4>￦<%=rvo.getLodresprice() %></td></tr>
-					<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><h4>환불설명</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능 합니다.<br>확인 <input type="checkbox" required="required"></td></tr>
-					<tr><td style="padding:15px 0px;"><input type="hidden" name="lodresnum" value="<%=rvo.getLodresnum() %>">
-					<input type="submit" value="취소버튼"></td></tr>
-				</table>
-			</td>
-			<td width="480px">
-				<table style="border-radius:15px;padding:15px;border:1px solid gray" width=100%>
-					<tr><td style="padding:15px 0px;border-bottom:1px solid gray"><img style="border-radius:15px;" src="images/<%=rvo.getLodimg1()%>" width="100px" height="100px"></td><td style="border-bottom:1px solid gray"><%=rvo.getLodname() %></td></tr>
-					<tr><td style="padding:15px 0px;">날짜</td><td><%=rvo.getLodchkin()%> ~ <%=rvo.getLodchkout()%></td></tr>
-					<tr><td style="padding:15px 0px;border-bottom:1px solid gray">게스트</td><td style="border-bottom:1px solid gray"><%=rvo.getLodpeople()%>명</td></tr>
-					<tr><td style="padding:15px 0px;">요금</td><td>￦<%=rvo.getLodresprice()%></td></tr>
-				</table>
-			</td>
-		</tr>
-	</table>
-</form>
+<link rel="stylesheet" href="css/resdelete.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/swiper.min.css">
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/ui.common.js?v=<?php echo time(); ?>"></script>
+</head>
+<body>
+
+<div id="wrap">
+	<div class="wrap_inner">
+    	<!-- 헤더 -->
+        <header id="header">
+            <div class="header_inner">
+                <h2><image class="logo" src="./images/logo.png"/></h2>
+                <div class="header_btn">
+                    <ul>
+                        <li><span>어디든지</span></li>
+                        <li><span>언제든 일주일</span></li>
+                        <li><span>게스트 추가</span> <a href="javascript:;" class="search_icon"></a></li>
+                    </ul>
+                </div>
+    
+                <div class="user_menu">
+					<ul>
+						<li><a href="javascript:;"><image class="profile btn-open-popup" src="./images/profile.png"></a></li>
+					</ul>
+                </div>
+                <div class="modal public">
+                    <ul>
+                        <li>로그인</li>
+                        <li>회원가입</li>
+                    </ul>
+                </div>
+                <div class="modal private">
+                    <ul>
+                        <li>내정보</li>
+                        <li>로그아웃</li>
+                    </ul>
+                </div>
+            </div>
+        </header>		
+		<!-- 바디 -->
+		<br><br><br>
+		<form action="LodResrDeletePro.jsp" method="post">
+			<div class="main">
+				<div class="left">
+					<div class="loddeletebox" align="center">
+						<div><h2>예약취소</h2></div>
+						<div class="lodresprice2"><h4>환불금액</h4>￦<%=rvo.getLodresprice() %></div>
+						<div class="lodref"><h4>환불설명</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능 합니다.<br>확인 <input type="checkbox" required="required"></div>
+						<div class="lodref2"><input type="hidden" name="lodresnum" value="<%=rvo.getLodresnum() %>"><input type="submit" value="취소버튼"></div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="lodresbox">
+						<div class="lodimg"><img class="lodimg2" src="images/<%=rvo.getLodimg1()%>"></div>
+						<div class="lodname"><%=rvo.getLodname() %></div>
+						<div class="loddate">날짜</div>
+						<div class="loddate"><%=rvo.getLodchkin()%> ~ <%=rvo.getLodchkout()%></div>
+						<div class="lodpeople">게스트</div>
+						<div class="lodpeople"><%=rvo.getLodpeople()%>명</div>
+						<div class="lodresprice">요금</div>
+						<div class="lodresprice">￦<%=rvo.getLodresprice()%></div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 </body>
 </html>

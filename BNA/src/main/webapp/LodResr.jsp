@@ -47,7 +47,6 @@ int people = Integer.parseInt(request.getParameter("people"));
 String today= request.getParameter("today");
 String tomorrow= request.getParameter("tomorrow");
 int lodnum = Integer.parseInt(request.getParameter("lodnum"));
-String id= "a1";
 ListDAO ldao = new ListDAO();
 ListVO lvo = ldao.getOneLod(lodnum);
 Date day1 = new SimpleDateFormat("yyyy-MM-dd").parse(today);
@@ -55,11 +54,20 @@ Date day2 = new SimpleDateFormat("yyyy-MM-dd").parse(tomorrow);
 long day3 = (day2.getTime() - day1.getTime()) / (1000*24*60*60);
 String loddate = String.valueOf(day3);
 int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
+String id = (String)session.getAttribute("id");
+if(id == null){
+%>
+<script>
+	alert("로그인이 필요합니다.");
+	history.back();
+</script>
+<%
+	}
 %>
 <!-- 헤더 -->
-<table border=1 width=100%>
+<table width="1280px" align="center" style="padding:4px 61px">
 	<tr>
-		<td>로고<%=loddate %></td>
+		<td><image class="logo" src="images/logo.png" width="100px"></td>
 	</tr>
 </table>
 <!-- 바디 -->
@@ -100,7 +108,7 @@ int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 					<td colspan="2" style="padding:15px">수수료 <%=1000*(people) %></td></tr>
 				<tr>
 					<td colspan="2" style="padding:15px">총 햡계(KRW) <%=lodresprice %>
-					<input type="hidden" name="id" value="a1">
+					<input type="hidden" name="id" value="<%=id%>">
 					<input type="hidden" name="loddate" value="<%=loddate %>">
 					<input type="hidden" name="lodchkin" value="<%=today %>">
 					<input type="hidden" name="lodchkout" value="<%=tomorrow %>">

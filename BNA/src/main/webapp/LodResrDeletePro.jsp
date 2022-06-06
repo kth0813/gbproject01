@@ -22,7 +22,7 @@
 			rdao.setReserveDeleteLod(rvo);
 
 			//회원정보 목록 보기로 이동
-			response.sendRedirect("Resr.jsp?id=a1");
+			response.sendRedirect("Resr.jsp?id=user");
 %>
 
 </body>

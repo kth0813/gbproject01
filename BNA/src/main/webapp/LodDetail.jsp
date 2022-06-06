@@ -14,7 +14,7 @@
 	ListDAO ldao = new ListDAO();
 	ListVO lvo = ldao.getOneLod(lodnum);
 %>
-<link rel="stylesheet" href="css/common2.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="css/detail.css?v=<?php echo time(); ?>">
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel="stylesheet" href="css/swiper.min.css">
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -82,7 +82,7 @@ cursor: pointer;
             </div>
         </header>		
 		<!-- 바디 -->
-		<body id="body">
+		<main id="main">
 			<div class="lodname">
 				<h2><%=lvo.getLodname()%></h2>
 			</div>
@@ -96,7 +96,7 @@ cursor: pointer;
 			<div class="loddetail">
 				<div class="lodinfodet"><h2>숙소정보</h2><%=lvo.getLodinfodet()%><br><br><hr></div>
 				<div class="lodres">
-					<form action="LodResr.jsp?lodnum=1" method="post">
+					<form action="LodResr.jsp?lodnum=<%=lvo.getLodnum() %>" method="post">
 						<div class="lodres1">
 							<div class="lodprice"><h3>￦<%=lvo.getLodprice() %> / 박</h3></div>
 							<div class="lodres2">
@@ -116,13 +116,15 @@ cursor: pointer;
 			<div class="loddetail2">
 				<div class="lodmap"><h2>숙소 지도</h2><br><jsp:include page="LodMap.jsp?lodnum=<%=lvo.getLodnum()%>"></jsp:include><br><br><hr></div>
 				<div class="lodaddr"><h2>숙소주소</h2><br><%=lvo.getLodaddr()%><br><br><hr></div>
-				<div class="lodrev"><h2>숙소 후기</h2></div>
+				<div class="lodrev"><h2>숙소 후기</h2>
+					<jsp:include page="LodReview.jsp"></jsp:include>
+				</div>
 			</div>
-		</body>
+		</main>
 		<footer id="footer">
             <div class="titleWrap">
                 <p class="title">Bna</p>
-                <image class="logo" src="images/logo.png"></h2>
+                <image class="logo" src="images/logo.png">
             </div>
             <p class="content">(주)BNA | 대표이사 : 김태훈 | 사업자 등록번호 : 123-45-67890 | 통신판매업신고 : 신림-12345호 | 메일 : helpMe@bna.com<br/> 
                 관광사업자 등록번호 : 제2022-61호 | 주소 : 서울특별시 관악구 신림로 340, 르네상스쇼핑몰 6층  |호스팅서비스 제공자 : 주식회사 BNA

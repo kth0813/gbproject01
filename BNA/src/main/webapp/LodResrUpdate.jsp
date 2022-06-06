@@ -31,13 +31,12 @@ String loddate = String.valueOf(day3);
 int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 %>
 <!-- 바디 -->
-<form action="LodResrUpdatePro.jsp" method="post">
-<table width="1280px">
+<table width="1280px" style="border-collapse : collapse;">
 	<tr>
-		<td width="280px" style="background-color:lightgray">
+		<td width="280px" style="background-color:lightgray;padding:15px 0px">
 			<table align="center" width="200px">
 				<tr>
-					<td>로고<h3>예약변경</h3></td>
+					<td><image class="logo" src="images/logo.png" width="100px"><h3>예약변경</h3></td>
 				</tr>
 				<tr height="600px">
 					<td></td>
@@ -47,37 +46,41 @@ int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 				</tr>
 			</table>
 		</td>
+		
 		<td width="1080px">
-			<table align="center">
-				<tr>
-					<td><h3>예약 세부 정보</h3></td>
-				</tr>
-				<tr>
-					<td><%=rvo.getLodname() %></td>
-				</tr>
-				<tr>
-					<td><h4>예약 날짜</h4></td>
-				</tr>
-				<tr>
-					<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" name="lodchkin" value="<%=rvo.getLodchkin()%>"></td><td>체크아웃<br><input type="date" name="lodchkout" value="<%=rvo.getLodchkout()%>"></td></tr></table></td>
-				</tr>
-				<tr>
-					<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>게스트</td><td align="center"><input type="number" min=1 max=4 step=1 value="<%=rvo.getLodpeople() %>" name="lodpeople"> 명</td></tr></table></td>
-				</tr>
-				<tr>
-					<td><h4>환불정책</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td>
-				</tr>
-				<tr>
-					<td style="padding:15px 0px">
-						<input type="hidden" name="loddate" value="<%=loddate %>">
-						<input type="hidden" name="lodresprice" value="<%=lodresprice %>">
-						<input type="submit" value="예약변경요청">
-					</td>
-				</tr>
-			</table>
+			<form action="LodResrUpdatePro.jsp" method="post">
+				<table align="center">
+					<tr>
+						<td><h3>예약 세부 정보</h3></td>
+					</tr>
+					<tr>
+						<td><%=rvo.getLodname() %></td>
+					</tr>
+					<tr>
+						<td><h4>예약 날짜</h4></td>
+					</tr>
+					<tr>
+						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" name="lodchkin" value="<%=rvo.getLodchkin()%>"></td><td>체크아웃<br><input type="date" name="lodchkout" value="<%=rvo.getLodchkout()%>"></td></tr></table></td>
+					</tr>
+					<tr>
+						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>게스트</td><td align="center"><input type="number" min=1 max=4 step=1 value="<%=rvo.getLodpeople() %>" name="lodpeople"> 명</td></tr></table></td>
+					</tr>
+					<tr>
+						<td><h4>환불정책</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능합니다.<br>확인 <input type="checkbox" required="required"></td>
+					</tr>
+					<tr>
+						<td style="padding:15px 0px">
+							<input type="hidden" name="loddate" value="<%=loddate %>">
+							<input type="hidden" name="lodresnum" value="<%=rvo.getLodresnum() %>">
+							<input type="hidden" name="lodresprice" value="<%=lodresprice %>">
+							<input type="submit" value="예약변경요청">
+						</td>
+					</tr>
+				</table>
+			</form>
 		</td>
 	</tr>
 </table>
-</form>
+
 </body>
 </html>

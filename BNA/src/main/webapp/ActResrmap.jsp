@@ -12,16 +12,16 @@
        }
     </style>
    <%
-   int lodresnum = Integer.parseInt(request.getParameter("lodresnum"));
+   int actresnum = Integer.parseInt(request.getParameter("actresnum"));
    ReserveDAO rdao = new ReserveDAO();
-   ReserveVO rvo = rdao.getOneReserveLod(lodresnum);
+   ReserveVO rvo = rdao.getOneReserveAct(actresnum);
 %>
   </head>
   <body>
     <div id="map"></div>
     <script>
       function initMap() {
-        var local = {lat: <%=rvo.getLodlat()%>, lng: <%=rvo.getLodlng()%>};
+        var local = {lat: <%=rvo.getActlat()%>, lng: <%=rvo.getActlng()%>};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: local

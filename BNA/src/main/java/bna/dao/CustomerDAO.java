@@ -30,15 +30,17 @@ public class CustomerDAO {
 		
 	}
 	
-	public ArrayList<CustomerVO> selectAll() {
+	public ArrayList<CustomerVO> selectAll(int startRow, int endRow) {
 		
 		getConnection();
 		
 		ArrayList<CustomerVO> arrlist=new ArrayList<>();
 		try {
 			
-			String sql = "select * from signtbl";
+			String sql = "select * from (select A.*,rownum rnum from(select * from signtbl order by name asc)A) where rnum >=? and rnum <=?";
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			rs=pstmt.executeQuery();
 			while (rs.next()) {
 				CustomerVO cvo = new CustomerVO();
@@ -77,5 +79,28 @@ public class CustomerDAO {
 			if(pstmt!=null){try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}}
 			if(conn!=null){try {conn.close();} catch (SQLException e) {e.printStackTrace();}}
 		}
+	}
+	
+	public int getAllCount(){
+		getConnection();
+		int count = 0;
+		
+		try {
+			String sql = "select count(*) from signtbl";
+			pstmt =conn.prepareStatement(sql);
+			rs =pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null)try {rs.close();} catch (SQLException e) {e.printStackTrace();}
+			if(pstmt!=null)try {pstmt.close();} catch (SQLException e) {e.printStackTrace();}
+			if(conn!=null)try {conn.close();} catch (SQLException e) {e.printStackTrace();}
+		}
+		return count;
 	}
 }
