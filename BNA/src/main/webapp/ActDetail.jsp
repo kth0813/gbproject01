@@ -51,36 +51,7 @@ cursor: pointer;
 <div id="wrap">
 	<div class="wrap_inner">
     	<!-- 헤더 -->
-        <header id="header">
-            <div class="header_inner">
-                <h2><image class="logo" src="./images/logo.png"/></h2>
-                <div class="header_btn">
-                    <ul>
-                        <li><span>어디든지</span></li>
-                        <li><span>언제든 일주일</span></li>
-                        <li><span>게스트 추가</span> <a href="javascript:;" class="search_icon"></a></li>
-                    </ul>
-                </div>
-    
-                <div class="user_menu">
-					<ul>
-						<li><a href="javascript:;"><image class="profile btn-open-popup" src="./images/profile.png"></a></li>
-					</ul>
-                </div>
-                <div class="modal public">
-                    <ul>
-                        <li>로그인</li>
-                        <li>회원가입</li>
-                    </ul>
-                </div>
-                <div class="modal private">
-                    <ul>
-                        <li>내정보</li>
-                        <li>로그아웃</li>
-                    </ul>
-                </div>
-            </div>
-        </header>		
+		<jsp:include page="header.jsp" flush="false"/>
 		<!-- 바디 -->
 		<main id="main">
 			<div class="actname">
@@ -118,15 +89,7 @@ cursor: pointer;
 				</div>
 			</div>
 		</main>
-		<footer id="footer">
-            <div class="titleWrap">
-                <p class="title">Bna</p>
-                <image class="logo" src="images/logo.png">
-            </div>
-            <p class="content">(주)BNA | 대표이사 : 김태훈 | 사업자 등록번호 : 123-45-67890 | 통신판매업신고 : 신림-12345호 | 메일 : helpMe@bna.com<br/> 
-                관광사업자 등록번호 : 제2022-61호 | 주소 : 서울특별시 관악구 신림로 340, 르네상스쇼핑몰 6층  |호스팅서비스 제공자 : 주식회사 BNA
-                고객센터 : 1644-1234 (오전 9시 - 익일 새벽 3시)</p>
-        </footer>
+		<jsp:include page="footer.jsp" flush="false"/>
 	</div>
 </div>
 </body>

@@ -445,7 +445,7 @@ body.on {
   margin: 0 auto;
 }
 #header {
-  height: 10vh;
+  height: 8vh;
 }
 #header .header_inner {
   display: flex;
@@ -460,36 +460,58 @@ body.on {
   width: 100px;
 }
 #header .header_inner .header_btn {
-  display: flex;
-  align-items: center;
-  width: 30%;
-  height: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    width:40%;
+    height:100%;
+}
+#header .header_inner .header_btn form {
+    height:40%;
+    width:80%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+#header .header_inner .header_btn form input[type="text"] {
+    width:80%;
+    height:100%;
+    padding:1% 2%;
+    color:#666;
+    border:solid 1px #d1d1d1;
+}
+#header .header_inner .header_btn form input[type="submit"] {
+    width:15%;
+    height:100%;
+    font-size:.9rem;
+    background-color:#ff5a5f;
+    border:none;
+    border-radius:5px;
+    color:#fff;
+}
+#header .header_inner .header_btn .area_btn {
+    width:40%;
+    height:45%;
 }
 #header .header_inner .header_btn ul {
-  display: flex;
-  align-items: center;
-  /* justify-content:space-between; */
-  border: solid 1px #eee;
-  border-radius: 50px;
-  width: 100%;
-  height: 50%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:solid 1px #eee;
+    border-radius:50px;
+    width:100%;
+    height:100%;
+    box-shadow:3px 3px 15px rgba(0,0,0,.15);
 }
 #header .header_inner .header_btn ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 25%;
-  height: 100%;
-  position: relative;
-  padding: 0 4%;
-}
-#header .header_inner .header_btn ul li:nth-child(2) {
-  width: 35%;
-}
-#header .header_inner .header_btn ul li:last-child {
-  width: 40%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    width:50%;
+    height:100%;
+    position:relative;
 }
 #header .header_inner .header_btn ul li:after {
   content: "";
@@ -513,11 +535,7 @@ body.on {
   width: 80%;
 }
 #header .header_inner .header_btn ul li a {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #e91e63;
-  border-radius: 50%;
+	display: block;
 }
 #header .header_inner .user_menu {
   display: flex;

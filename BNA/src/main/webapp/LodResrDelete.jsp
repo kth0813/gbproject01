@@ -25,37 +25,6 @@ ReserveVO rvo = rdao.getOneReserveLod(lodresnum);;
 
 <div id="wrap">
 	<div class="wrap_inner">
-    	<!-- 헤더 -->
-        <header id="header">
-            <div class="header_inner">
-                <h2><image class="logo" src="./images/logo.png"/></h2>
-                <div class="header_btn">
-                    <ul>
-                        <li><span>어디든지</span></li>
-                        <li><span>언제든 일주일</span></li>
-                        <li><span>게스트 추가</span> <a href="javascript:;" class="search_icon"></a></li>
-                    </ul>
-                </div>
-    
-                <div class="user_menu">
-					<ul>
-						<li><a href="javascript:;"><image class="profile btn-open-popup" src="./images/profile.png"></a></li>
-					</ul>
-                </div>
-                <div class="modal public">
-                    <ul>
-                        <li>로그인</li>
-                        <li>회원가입</li>
-                    </ul>
-                </div>
-                <div class="modal private">
-                    <ul>
-                        <li>내정보</li>
-                        <li>로그아웃</li>
-                    </ul>
-                </div>
-            </div>
-        </header>		
 		<!-- 바디 -->
 		<br><br><br>
 		<form action="LodResrDeletePro.jsp" method="post">
@@ -65,7 +34,7 @@ ReserveVO rvo = rdao.getOneReserveLod(lodresnum);;
 						<div><h2>예약취소</h2></div>
 						<div class="lodresprice2"><h4>환불금액</h4>￦<%=rvo.getLodresprice() %></div>
 						<div class="lodref"><h4>환불설명</h4><%=rvo.getLodchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능 합니다.<br>확인 <input type="checkbox" required="required"></div>
-						<div class="lodref2"><input type="hidden" name="lodresnum" value="<%=rvo.getLodresnum() %>"><input type="submit" value="취소버튼"></div>
+						<div class="lodref2"><input type="hidden" name="lodresnum" value="<%=rvo.getLodresnum() %>"><input type="submit" value="취소 요청하기"></div>
 					</div>
 				</div>
 				<div class="right">

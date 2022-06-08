@@ -65,7 +65,7 @@ ReserveVO rvo = rdao.getOneReserveAct(actresnum);;
 						<div><h2>예약취소</h2></div>
 						<div class="actresprice2"><h4>환불금액</h4>￦<%=rvo.getActresprice() %></div>
 						<div class="actref"><h4>환불설명</h4><%=rvo.getActchkin() %>일 이전에 예약 취소시 전액 환불됩니다.<br>이후엔 환불 불가능 합니다.<br>확인 <input type="checkbox" required="required"></div>
-						<div class="actref2"><input type="hidden" name="actresnum" value="<%=rvo.getActresnum() %>"><input type="submit" value="취소버튼"></div>
+						<div class="actref2"><input type="hidden" name="actresnum" value="<%=rvo.getActresnum() %>"><input type="submit" value="취소 요청하기"></div>
 					</div>
 				</div>
 				<div class="right">

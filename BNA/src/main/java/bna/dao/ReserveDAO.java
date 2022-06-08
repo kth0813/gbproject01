@@ -87,17 +87,17 @@ public class ReserveDAO {
 	}
 	
 	//회원의 숙소예약정보 내용 불러오기
-	public Vector<ReserveVO> getAllReserveLod() throws Exception{ //String id
+	public Vector<ReserveVO> getAllReserveLod(String id) throws Exception{ //String id
 		
 		Vector<ReserveVO> v = new Vector<>();
 					
 		getConnection();
 		
 		try {
-			String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum "; // where id = ?
+			String sql = "select * from lodrestbl a join lodtbl b on a.lodnum=b.lodnum where id = ?"; // where id = ?
 					
 			pstmt = conn.prepareStatement(sql);
-			//pstmt.setString(1, id);
+			pstmt.setString(1, id);
 			
 			rs	= pstmt.executeQuery();	
 			
@@ -132,17 +132,17 @@ public class ReserveDAO {
 	
 		
 	//회원의 체험예약정보 내용 불러오기
-	public Vector<ReserveVO> getAllReserveAct() throws Exception{ //String id
+	public Vector<ReserveVO> getAllReserveAct(String id) throws Exception{ //String id
 		
 		Vector<ReserveVO> v = new Vector<>();
 					
 		getConnection();
 		
 		try {
-			String sql = "select * from actrestbl a join acttbl b on a.actnum=b.actnum"; // where id = ?
+			String sql = "select * from actrestbl a join acttbl b on a.actnum=b.actnum where id = ?"; // where id = ?
 					
 			pstmt = conn.prepareStatement(sql);
-			//pstmt.setString(1, id);
+			pstmt.setString(1, id);
 			
 			rs	= pstmt.executeQuery();	
 			

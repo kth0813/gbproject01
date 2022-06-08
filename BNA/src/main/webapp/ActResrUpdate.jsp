@@ -12,6 +12,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+input[type=submit] {
+width: 100%;
+background-color:#DE1362;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+input[type=button] {
+width: 100%;
+background-color:lightgray;
+color: black;
+font-size:large;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -42,7 +65,7 @@ int actresprice=lvo.getActprice()*Integer.parseInt(actdate)+1000*(people);
 					<td></td>
 				</tr>
 				<tr>
-					<td><input type="button" onClick="location.href='ActResrDetail.jsp?actresnum=<%=rvo.getActresnum() %>'" value="뒤로버튼"></td>
+					<td><input type="button" onClick="location.href='ActResrDetail.jsp?actresnum=<%=rvo.getActresnum() %>'" value="뒤로가기"></td>
 				</tr>
 			</table>
 		</td>

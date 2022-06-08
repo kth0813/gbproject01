@@ -64,17 +64,18 @@ public class ListDAO {
 		return lvo;
 	}
 //숙소전체리스트 반환
-	public Vector<ListVO> getLodList() {
+	public Vector<ListVO> getLodList(String q) {
 		
 		getConnection();
 		
 		Vector<ListVO> v =  new Vector<ListVO>();
 		
 		try {
-			String sql = "select * from LODTBL";//숙소정보 모두 반환
+			String sql = "select * from LODTBL where lodaddr like ? ";//숙소정보 모두 반환
 			
 			pstmt = conn.prepareStatement(sql);
-					
+			pstmt.setString(1, "%"+q+"%");
+		
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -135,17 +136,18 @@ public class ListDAO {
 			return lvo;
 		}
 //체험전체리스트 반환
-	public Vector<ListVO> getActList() {
+	public Vector<ListVO> getActList(String q) {
 			
 		getConnection();
 			
 		Vector<ListVO> v =  new Vector<ListVO>();
 			
 		try {
-			String sql = "select * from ACTTBL";//체험정보 모두 반환
+			String sql = "select * from ACTTBL where actaddr like ? ";//체험정보 모두 반환
 				
 			pstmt = conn.prepareStatement(sql);
-						
+			pstmt.setString(1, "%"+q+"%");
+			
 			rs = pstmt.executeQuery();
 				
 			while(rs.next()) {

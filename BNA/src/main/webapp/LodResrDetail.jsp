@@ -23,64 +23,30 @@ ReserveVO rvo = rdao.getOneReserveLod(lodresnum);
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/swiper.min.js"></script>
-<script src="js/ui.common.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
 <!-- 헤더 -->
 <div id="wrap">
 	<div class="wrap_inner">
     	<!-- 헤더 -->
-        <header id="header">
-            <div class="header_inner">
-                <h2><image class="logo" src="./images/logo.png"/></h2>
-                <div class="header_btn">
-                    <ul>
-                        <li><span>어디든지</span></li>
-                        <li><span>언제든 일주일</span></li>
-                        <li><span>게스트 추가</span> <a href="javascript:;" class="search_icon"></a></li>
-                    </ul>
-                </div>
-    
-                <div class="user_menu">
-					<ul>
-						<li><a href="javascript:;"><image class="profile btn-open-popup" src="./images/profile.png"></a></li>
-					</ul>
-                </div>
-                <div class="modal public">
-                    <ul>
-                        <li>로그인</li>
-                        <li>회원가입</li>
-                    </ul>
-                </div>
-                <div class="modal private">
-                    <ul>
-                        <li>내정보</li>
-                        <li>로그아웃</li>
-                    </ul>
-                </div>
-            </div>
-        </header>		
+		<jsp:include page="header.jsp" flush="false"/>
+<!-- 바디 -->
+<div class="resdetbox">
+	<div class="title"><h2>예약상세목록</h2></div>
+	<div class="resdetbox2">
+		<div class="img2"><img src="images/<%=rvo.getLodimg1()%>" width="470px" height="350px"></div>
+		<div class="name2"><h3><%=rvo.getLodname()%></h3></div>			
+		<div class="chkin2"><h4>체크인</h4><%=rvo.getLodchkin() %></div>
+		<div class="chkout2"><h4>체크아웃</h4><%=rvo.getLodchkout() %></div>
+		<div class="people2"><h4>인원</h4><%=rvo.getLodpeople() %></div>
+		<div class="price2"><h4>가격</h4><%=rvo.getLodresprice() %></div>
+		<div class="addr2"><h4>주소</h4><%=rvo.getLodaddr() %></div>
+		<div class="update2"><h3 onClick="location.href='LodResrUpdate.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약변경 ></h3></div>
+		<div class="delete2"><h3 onClick="location.href='LodResrDelete.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약취소 ></h3></div>
+	</div>
+	<div class="map2">		
+		<jsp:include page="LodResrmap.jsp"></jsp:include>
 	</div>
 </div>
-<!-- 바디 -->
-<table align="center" width="1280px">
-	<tr>
-		<td height="50px" colspan=2 style="padding:0px 15px 0px 15px;"><h2>예약상세목록</h2>
-	</tr>
-	<tr>
-		<td>
-			<table width="480px" height="700px">
-				<tr><td colspan="2" width="470px" height="350px" align="center"><img src="images/<%=rvo.getLodimg1()%>" width="470px" height="350px"></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3><%=rvo.getLodname()%></h3></td></tr>			
-				<tr><td style="width:225px; border-bottom:1px solid gray; border-right:1px solid gray; padding:0px 15px 15px 15px;"><h4>체크인</h4><%=rvo.getLodchkin() %></td><td style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;width:225px; "><h4>체크아웃</h4><%=rvo.getLodchkout() %></td></tr>
-				<tr><td style="width:225px; border-bottom:1px solid gray; border-right:1px solid gray; padding:0px 15px 15px 15px;"><h4>인원</h4><%=rvo.getLodpeople() %></td><td style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;"><h4>가격</h4><%=rvo.getLodresprice() %></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 15px 15px;"><h4>주소</h4><%=rvo.getLodaddr() %></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrUpdate.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약변경 ></h3></td></tr>
-				<tr><td colspan="2" style="border-bottom:1px solid gray; padding:0px 15px 0px 15px;"><h3 onClick="location.href='LodResrDelete.jsp?lodresnum=<%=rvo.getLodresnum() %>'">예약취소 ></h3></td></tr>
-			</table>
-		</td>
-		<td width="800px" height="800px" bgcolor="gray"><jsp:include page="LodResrmap.jsp"></jsp:include></td>
-	</tr>
-</table>
 </body>
 </html>
