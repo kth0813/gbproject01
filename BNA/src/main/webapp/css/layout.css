@@ -1,0 +1,39 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin:0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 220px;
+  width: 100%;
+}
+#header{
+	  max-width:1280px;
+	  margin:0 auto;
+	  list-style: none 
+}
+footer {
+  padding: 8vw;
+  padding-top: 2vw;
+  height: 380px;
+  margin-top: auto;
+  background-color: rgb(247,247,247);
+}
+
+ul {
+  font-weight: bold;
+  list-style:none;
+}
+
+li {
+  font-weight: normal;
+  margin-top: 10px;
+}

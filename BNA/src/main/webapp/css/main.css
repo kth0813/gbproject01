@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, code, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, footer, header, hgroup, menu, nav, section, main, audio, video { margin: 0; padding: 0; }
+
+/* html의 모든 요소와 가상요소선택자에 border-box사용하여 padding, border사용시
+늘어나지않게함 */
+*, :before, :after {box-sizing: border-box;}
+
+/* 레이아웃 크기 입력하여 줄어들지않게함 */
+#wrap {min-width: 360px; position:relative; overflow:hidden; }
+
+/* index page */
+.wrap_inner {
+    max-width:1280px;
+    margin:0 auto;
+}
+
+/* main */
+img {max-width: 100%;}
+ol, ul { list-style: none }
+a { text-decoration: none; color: #666;  font-weight:400;}
+#main {
+}
+#main .room_type {
+  width: 100%;
+  height: 17vh;
+}
+#main .room_type ul {
+  width: 40%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#main .room_type ul li {
+  width: 33.333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main .room_type ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#main .room_type ul li a img {
+  width: 38px;
+  height: 38px;
+}
+#main .room_type ul li a span {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+#main .good_area {
+  width: 60%;
+  height: 20vh;
+  margin: 50px auto 0;
+}
+#main .good_area h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  width: 100%;
+  height: 14%;
+}
+#main .good_area ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 86%;
+}
+#main .good_area ul li {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+}
+#main .good_area ul li img {
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+#main .good_area ul li span {
+  font-weight: 600;
+}
+#main .notice_wrap {
+  width: 90%;
+  height: 35vh;
+  margin: 3% auto 5%;
+}
+#main .notice_wrap ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+#main .notice_wrap ul li {
+  width: 49%;
+  height: 100%;
+}
+#main .notice_wrap ul li .notice_imgWrap {
+  display: flex;
+  flex-direction: column;
+}
+#main .notice_wrap ul li .notice_imgWrap p {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+#main .notice_wrap ul li img {
+  width: 100%;
+  height: 90%;
+  max-height: 360px;
+  border-radius: 10px;
+}
+#main .notice_wrap ul li .text_box {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#main .notice_wrap ul li .text_box h5 {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+#main .notice_wrap ul li .text_box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8% 2.5%;
+  border: solid 2px #666;
+  border-radius: 5px;
+  font-weight: 500;
+}
+#main .hostel {
+  width: 100%;
+  height: 70vh;
+}
+#main .hostel h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  height: 7%;
+}
+#main .hostel ul {
+  width: 100%;
+  height: 93%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#main .hostel ul li {
+  width: 23%;
+  height: 45%;
+  padding: 2% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main .hostel ul li img {
+  width: 268px;
+  min-height: 254px;
+  border-radius: 14px;
+}
+#main .hostel ul li .title {
+  margin-top: 5px;
+  font-weight: 600;
+  width: 250px;
+  text-align: left;
+  margin: 10px auto 5px;
+}
+#main .hostel ul li .content {
+  color: #666;
+  width: 250px;
+  text-align: left;
+}
+#main .hostel ul li .main_slider_wrap {
+  width: 100%;
+  height: 65%;
+  border: solid 1px green;
+}
+#main .hostel ul li .main_slider_wrap .main_slider {
+  width: 100%;
+  height: 100%;
+}
+#main .hostel ul li .text_wrap {
+  display: flex;
+  flex-direction: column;
+}
+#main .hostel ul li .text_wrap span {
+  color: #666;
+}
+#main .hostel ul li .text_wrap .tit_text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#main .hostel ul li .text_wrap .tit_text span {
+  width: 20%;
+}
+#main .experience {
+  width: 100%;
+  height: 80vh;
+  margin: 3% auto;
+}
+#main .experience h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  height: 7%;
+}
+#main .experience ul {
+  width: 100%;
+  height: 93%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#main .experience ul li {
+  width: 23%;
+  height: 50%;
+  margin-top: 20px;
+}
+
+#main .experience ul li img {
+  width: 100%;
+  height: 380px;
+  border-radius: 10px;
+}
+#main .experience ul li p {
+  width: 250px;
+  text-align: left;
+  padding-left: 5px;
+}
+#main .experience ul li .title {
+  margin-top: 5px;
+  font-weight: 600;
+  padding-left: 5px;
+}

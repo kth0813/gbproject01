@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+*{
+	list-style : none;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	/* 중간 띄어쓰기를 해서 3개를 나눠서 띄어쓰기해줌 */
+	align-items: center;
+	/* 수직으로 정중앙에 가게 맞춰준다 */
+	padding: 8px 12px;
+}
+
+a{
+	color: black;
+}
+
+.title{
+	font-size: 70px; 
+	color: black;
+}
+
+.login{
+	font-size: 23px;
+	margin-top: 85px;
+}
+
+.logout{
+	font-size: 21px;
+	padding: 5px;
+}
+
+.main{
+	width: 100%;
+}
+
+.logo{
+	width: 200px;
+	height: 100%;
+}
+
+.nav{
+	padding : 20px;
+	background-color: #263343;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav > li{
+	
+	font-size: 25px;
+}
+
+li > a{
+	color: white;
+}
+ 

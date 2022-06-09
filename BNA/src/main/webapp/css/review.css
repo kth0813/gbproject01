@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+.lodrevbox {
+	display: grid;
+	grid-template-columns: 100px 500px ;
+	width:600px;
+	padding:15px
+}
+.lodrevname {
+	padding:15px;
+	border-right:1px solid gray;
+}
+.lodrevcont {
+	padding:15px 0px 15px 30px;
+}
+.actrevbox {
+	display: grid;
+	grid-template-columns: 100px 500px ;
+	width:600px;
+	padding:15px
+}
+.actrevname {
+	padding:15px;
+	border-right:1px solid gray;
+}
+.actrevcont {
+	padding:15px 0px 15px 30px;
+}

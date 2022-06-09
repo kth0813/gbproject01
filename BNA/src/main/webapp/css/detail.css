@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+
+#main input[type=submit] {
+width: 100%;
+background-color:#DE1362;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+#main .lodname {
+	padding:15px
+}
+#main .lodimgbox {
+	display: grid;
+	grid-template-columns: 620px 310px 310px;
+	padding:15px
+}
+#main .lodimg1 {
+	grid-row: span 2;
+}
+#main .loddetail {
+	display:grid;
+	padding:15px;
+	grid-template-columns: 900px 350px;
+}
+#main .lodres {
+	grid-row: span 4;
+}
+
+#main .loddetail2 {
+	display:grid;
+	padding:15px;
+	width:1280px;
+}
+#main .lodres2 {
+	display: grid;
+	border-radius:15px;
+	grid-template-columns: 150px 150px;
+	border:1px solid gray;
+	padding:15px
+}
+#main .lodres1{
+	background-color:white;
+	border:1px solid gray;
+	border-radius:15px;
+	padding: 15px;
+}
+#main .lodresbox {
+	text-align:center;
+	display: grid;
+	border-radius:15px;
+	overflow:hidden; 
+	box-shadow:0px 0px 10px 0px gray;
+	grid-template-columns: 300px 300px 300px;
+	width:900px;
+	border:1px solid gray;
+	}
+#main .lodresname {
+	grid-column: span 2;
+	border-bottom:1px solid gray;
+	padding: 45px 0px 0px;
+	
+}
+#main .lodresimg {
+	grid-row: span 2;
+}
+#main .lodresdate {
+	border-right:1px solid gray;
+	padding: 45px 0px 0px;
+}
+#main .lodresaddr {
+	padding: 45px 0px 0px;
+}
+#main .actname {
+	padding:15px
+}
+#main .actimgbox {
+	display: grid;
+	grid-template-columns: 620px 310px 310px;
+	padding:15px
+}
+#main .actimg1 {
+	grid-row: span 2;
+}
+#main .actdetail {
+	display:grid;
+	padding:15px;
+	grid-template-columns: 900px 350px;
+}
+#main .actres {
+	grid-row: span 4;
+}
+
+#main .actdetail2 {
+	display:grid;
+	padding:15px;
+	width:1280px;
+}
+#main .actres2 {
+	display: grid;
+	border-radius:15px;
+	grid-template-columns: 150px 150px;
+	border:1px solid gray;
+	padding:15px
+}
+#main .actres1{
+	background-color:white;
+	border:1px solid gray;
+	border-radius:15px;
+	padding: 15px;
+}
+#main .actresbox {
+	text-align:center;
+	display: grid;
+	border-radius:15px;
+	overflow:hidden; 
+	box-shadow:0px 0px 10px 0px gray;
+	grid-template-columns: 300px 300px 300px;
+	width:900px;
+	border:1px solid gray;
+	}
+#main .actresname {
+	grid-column: span 2;
+	border-bottom:1px solid gray;
+	padding: 45px 0px 0px;
+	
+}
+#main .actresimg {
+	grid-row: span 2;
+}
+#main .actresdate {
+	border-right:1px solid gray;
+	padding: 45px 0px 0px;
+}
+#main .actresaddr {
+	padding: 45px 0px 0px;
+}
+#main .fix{
+	position:fixed;
+	_position:absolute;
+	width:350px;
+	top:30px;
+	z-index:100
+}
+.resdetbox {
+	text-align:center;
+	display: grid;
+	overflow:hidden; 
+	grid-template-columns: 480px 800px;
+	width:1280px;
+	height:800px;
+	}
+.resdetbox2 {
+	text-align:center;
+	display: grid;
+	overflow:hidden; 
+	grid-template-columns: 240px 240px;
+	width:480px;
+	height:750px;
+	border-bottom:1px solid gray;
+	}
+.title {
+	grid-column: span 2;
+	text-align:left;
+	height:50px;
+}
+.img2 {
+	grid-column: span 2;
+}		
+.name2 {
+	grid-column: span 2;
+	border-bottom:1px solid gray; 
+	padding: 15px;
+}			
+.chkin2 {
+	border-bottom:1px solid gray; 
+	border-right:1px solid gray; 
+	padding:15px;
+}
+.chkout2 {
+	border-bottom:1px solid gray; 
+	padding: 15px;
+}
+.people2 {
+	border-bottom:1px solid gray; 
+	border-right:1px solid gray; 
+	padding:15px;
+}
+.price2 {
+	border-bottom:1px solid gray; 
+	padding:15px;
+}
+.addr2 {
+	grid-column: span 2; 
+	border-bottom:1px solid gray; 
+	padding:15px;
+}
+.update2 {
+	grid-column: span 2;
+	border-bottom:1px solid gray; 
+	padding:15px;
+}
+.delete2 {
+	grid-column: span 2; 
+	border-bottom:1px solid gray; 
+	padding:15px;
+}

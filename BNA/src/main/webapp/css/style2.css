@@ -1,0 +1,109 @@
+.wrap_inner {
+    max-width:1280px;
+    margin:0 auto;
+}
+#header {
+    height:10vh;
+}
+#header .header_inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:.8% 5%;
+    border-bottom:solid 1px gray;
+    height:100%;
+}
+#header .header_inner .logo {
+    width:15%;
+    height:50%;
+}
+
+#header .header_inner .user_menu {
+    display:flex;
+    align-items:center;
+    width:50px;
+    height:50%;
+    border:solid 1px #eee;
+    border-radius:50px;
+    box-shadow:5px 5px 10px rgba(0,0,0,.2);
+}
+#header .header_inner .user_menu ul {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+#header .header_inner .user_menu ul li {
+    width:50%;
+    text-align:center;
+    display: flex;
+}
+
+#header .header_inner .user_menu ul li img {
+  width: 30px;
+}
+#header .header_inner .modal {
+  display: none;
+  position: absolute;
+  border: solid 1px #eee;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  top: 100px;
+  right: 50px;
+  width: 200px;
+  height: 102px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+#header .header_inner .modal ul li {
+  border-top: solid 1px #eee;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 10px;
+}
+#header .header_inner .modal ul li:first-child {
+  border-bottom: solid 1px #eee;
+}
+
+#header .header_inner .user_menu a {
+	text-decoration: none; color: #666;  font-weight:400; font-size:15px;
+}
+
+#footer {
+  background-color: #efefef;
+  padding: 50px 30px;
+}
+#footer .titleWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#footer .title {
+  font-size: 24px;
+  font-weight: 700;
+}
+#footer .logo {
+  width: 100px;
+}
+#footer .content {
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+}
+
+
+a { text-decoration: none; color: #666;  font-weight:400;}
+ol, ul { list-style: none }
+*, :before, :after {box-sizing: border-box;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, code, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, footer, header, hgroup, menu, nav, section, main, audio, video { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100% }
+#wrap {min-width: 360px; position:relative; overflow:hidden;  }
+
+
+body, input, select, textarea, button, table { font-family: 'noto sans KR'; font-size: 16px; color: #222; letter-spacing: -0.025em; font-weight:400;}
+input, select, textarea, button { vertical-align: middle; margin: 0; padding: 0 }

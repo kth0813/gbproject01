@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+*{
+	list-style : none;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+th {
+	font-size: 20px;
+	padding: 20px;
+}
+
+td{
+	font-size: 20px;
+	padding: 20px;
+}
+
+table{
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+input[type=button]{
+	font-size: 15px;
+}

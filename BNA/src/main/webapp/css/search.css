@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+.searchSection{
+	  max-width:1280px;
+	  margin:0 auto;
+	  list-style: none 
+}
+
+.searchHeader{
+    font-size: 15px;
+}
+
+.largeText {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+hr {
+    border-top: 1px solid rgb(240,240,240);
+}
+
+.searchContainer{
+	position: relative;
+	display:flex;
+	flex-direction : row;
+    flex-wrap: wrap;
+
+}
+
+
+.searchItem{
+    flex:none;
+    width: 270px;
+    height: 340px;
+    margin-right: 15px;
+}
+
+.roomImg {
+    object-fit: fill;
+    width:100%;
+    height: 180px;
+    border-radius: 12px;
+}
+
+.roomName {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.roomBooking {
+    display:flex;
+    justify-content: space-between;
+}
+
+.bookingBtn{
+    background-color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    border:none;
+    font-weight: bold;
+    border-width: 1px;
+}
+
+.bookingBtn:hover {
+    background-color: white;
+    background-color: rgb(235, 235, 235);
+}
+
+.nightPrice {
+    font-weight: bold;
+}
+
