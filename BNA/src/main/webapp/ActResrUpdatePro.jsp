@@ -22,7 +22,7 @@
 			rdao.setReserveUpdateAct(rvo);
 
 			//회원정보 목록 보기로 이동
-			response.sendRedirect("Resr.jsp?id=user");
+			response.sendRedirect("Resr.jsp");
 %>
 </body>
 </html>

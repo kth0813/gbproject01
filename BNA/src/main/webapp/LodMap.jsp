@@ -19,7 +19,7 @@
   </head>
   <body>
 <div id="map"></div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ef7556166fc4f7a8984b1f9c339b986c"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7c7df9c93397c6b9396392baccd5f21"></script>
     <script>
     var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     var options = { //지도를 생성할 때 필요한 기본 옵션

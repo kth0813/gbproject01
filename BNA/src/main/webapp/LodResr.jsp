@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙소와 체험을 한눈에 찾아보세요 - BNA</title>
 <link rel="stylesheet" href="css/resr.css?v=<?php echo time(); ?>">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
@@ -63,7 +63,16 @@ if(id == null){
 	history.back();
 </script>
 <%
-	}
+}
+if(Integer.parseInt(loddate)<1){
+	%>
+	<script>
+	alert("날짜가 잘못되었습니다.");
+	history.back();
+	</script>
+	<%
+}
+%>
 %>
 <!-- 헤더 -->
 <table width="1280px" align="center" style="padding:4px 61px">

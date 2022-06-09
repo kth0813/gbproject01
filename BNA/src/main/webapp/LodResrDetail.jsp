@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙소와 체험을 한눈에 찾아보세요 - BNA</title>
 <%
 int lodresnum = Integer.parseInt(request.getParameter("lodresnum"));
 ReserveDAO rdao = new ReserveDAO();

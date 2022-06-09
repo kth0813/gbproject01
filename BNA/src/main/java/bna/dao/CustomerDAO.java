@@ -47,11 +47,10 @@ public class CustomerDAO {
 				cvo.setId(rs.getString(1));
 				cvo.setName(rs.getString(2));
 				cvo.setPasswd1(rs.getString(3));
-				cvo.setPasswd2(rs.getString(4));
-				cvo.setMail(rs.getString(5));
-				cvo.setTele(rs.getString(6));
-				cvo.setAddress(rs.getString(7));
-				cvo.setAge(rs.getInt(8));
+				cvo.setMail(rs.getString(4));
+				cvo.setTele(rs.getString(5));
+				cvo.setAddress(rs.getString(6));
+				cvo.setAge(rs.getInt(7));
 				
 				arrlist.add(cvo);
 			}

@@ -11,7 +11,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙소와 체험을 한눈에 찾아보세요 - BNA</title>
+<script>
+window.onload = function() {
+	today = new Date();
+	tomorrow = new Date(today.getTime()+(1000*60*60*24));
+	today = today.toISOString().slice(0, 10);
+	tomorrow = tomorrow.toISOString().slice(0, 10);
+	chkin = document.getElementById("today");
+	chkout = document.getElementById("tomorrow");
+	chkin.setAttribute("min", today);
+	chkout.setAttribute("min", tomorrow);
+}
+ </script>
 <style>
 input[type=submit] {
 width: 100%;
@@ -83,7 +95,7 @@ int lodresprice=lvo.getLodprice()*Integer.parseInt(loddate)+1000*(people);
 						<td><h4>예약 날짜</h4></td>
 					</tr>
 					<tr>
-						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" name="lodchkin" value="<%=rvo.getLodchkin()%>"></td><td>체크아웃<br><input type="date" name="lodchkout" value="<%=rvo.getLodchkout()%>"></td></tr></table></td>
+						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>체크인<br><input type="date" id="today" name="lodchkin" value="<%=rvo.getLodchkin()%>"></td><td>체크아웃<br><input type="date" id="tomorrow" name="lodchkout" value="<%=rvo.getLodchkout()%>"></td></tr></table></td>
 					</tr>
 					<tr>
 						<td><table style="width:400px;border-radius:15px;border:1px solid gray;padding:15px"><tr><td>게스트</td><td align="center"><input type="number" min=1 max=4 step=1 value="<%=rvo.getLodpeople() %>" name="lodpeople"> 명</td></tr></table></td>

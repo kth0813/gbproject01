@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙소와 체험을 한눈에 찾아보세요 - BNA</title>
 <script src="js/ActDetail.js"></script>
 <%
 	int actnum = Integer.parseInt(request.getParameter("actnum"));
